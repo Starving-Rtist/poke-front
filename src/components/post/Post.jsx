@@ -1,10 +1,17 @@
 import "./post.css"
 import { MoreVert } from "@material-ui/icons"
 import { Users } from "../../dummyData";
+import { useState } from "react";
 
 export default function Post({post}) {
 
-    // const user = Users.filter(u=>u.id===1)
+    const [poke, setPoke] = useState(post.poke)
+    const [isPoked, setIsPoked] = useState(false)
+
+    const pokeHandler =()=>{
+        setPoke(isPoked ? poke-1 : poke+1)
+        setIsPoked(!isPoked)
+    }
 
     return(
         <div className="post">
@@ -25,8 +32,8 @@ export default function Post({post}) {
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img className="pokeIcon" src="/assets/post/poke1.png" />
-                        <span className="pokeCounter">{post.poke} people poked it</span>
+                        <img className="pokeIcon" src="/assets/post/poke1.png" onClick={pokeHandler} />
+                        <span className="pokeCounter">{poke} people poked it</span>
                     </div>
                     <div className="postBottomRight">
                         <span className="postCommentText">{post.comment} comments</span>
