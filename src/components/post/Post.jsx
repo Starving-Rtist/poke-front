@@ -1,31 +1,35 @@
 import "./post.css"
 import { MoreVert } from "@material-ui/icons"
+import { Users } from "../../dummyData";
 
-export default function Post() {
+export default function Post({post}) {
+
+    // const user = Users.filter(u=>u.id===1)
+
     return(
         <div className="post">
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img className="postProfileImg" src="/assets/person/pic1.jpg" />
-                        <span className="postUsername">Jui</span>
-                        <span className="postDate">5 minutes ago</span>
+                        <img className="postProfileImg" src={Users.filter((u) => u.id === post.userId)[0].profilePicture} />
+                        <span className="postUsername">{Users.filter((u) => u.id === post.userId)[0].username}</span>
+                        <span className="postDate">{post.date}</span>
                     </div>
                     <div className="postTopRight">
                         <MoreVert />
                     </div>
                 </div>
                 <div className="postCenter">
-                    <span className="postText">The best Japanese garlic fried rice. Poke it now!</span>
-                    <img className="postImg" src="/assets/post/post1.jpg" />
+                    <span className="postText">{post?.desc}</span>
+                    <img className="postImg" src={post.photo} />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
                         <img className="pokeIcon" src="/assets/post/poke1.png" />
-                        <span className="pokeCounter">2,054,968 people poked it</span>
+                        <span className="pokeCounter">{post.poke} people poked it</span>
                     </div>
                     <div className="postBottomRight">
-                        <span className="postCommentText">1,225,398 comments</span>
+                        <span className="postCommentText">{post.comment} comments</span>
                     </div>
                 </div>
             </div>

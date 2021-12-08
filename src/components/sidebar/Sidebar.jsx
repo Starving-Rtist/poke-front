@@ -1,5 +1,6 @@
 import "./sidebar.css";
 import { RssFeed, Chat, Pinterest } from "@material-ui/icons"
+import {Users} from "../../dummyData"
 
 export default function Sidebar() {
     return (
@@ -21,7 +22,10 @@ export default function Sidebar() {
                 </ul>
                 <button className="sidebarButton"> Show More</button>
                 <hr className="sidebarHr"/>
-                <ul className="sidebarFriendList">
+                <span>Advertisement:</span>
+                <img className="rightbarAd" src="/assets/ad2.png" />
+                <span>Like the show Silicon Valley? Give us money and we will make you the next Richard Hendricks.</span>
+                {/* <ul className="sidebarFriendList">
                     <li className="sidebarFriend">
                         <img className="sidebarFriendImg" src="/assets/person/pic2.jfif" />
                         <span className="sidebarFriendName">Jui</span>
@@ -34,7 +38,7 @@ export default function Sidebar() {
                         <img className="sidebarFriendImg" src="/assets/person/pic4.jfif" />
                         <span className="sidebarFriendName">Jesse</span>
                     </li>
-                </ul>
+                </ul> */}
             </div>
         </div>
     );
